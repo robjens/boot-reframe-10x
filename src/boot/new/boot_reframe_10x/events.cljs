@@ -3,6 +3,7 @@
             [re-frame.core :refer (reg-event-db reg-event-fx inject-cofx path after)]
             [cljs.spec.alpha :as s]))
 
+
 ;; -- Interceptors --------------------------------------------------------------
 ;;
 ;; Interceptors are a more advanced topic. So, we're plunging into the deep
@@ -56,7 +57,7 @@
 
 ;; -- Second Interceptor -----------------------------------------------------
 ;;
-;; Part of the {{ns-name}} challenge is to store todos in local storage.
+;; Part of the TodoMVC challenge is to store todos in local storage.
 ;; Next, we define an interceptor to help with this challenge.
 ;; This interceptor runs `after` an event handler, and it stores the
 ;; current todos into local storage.

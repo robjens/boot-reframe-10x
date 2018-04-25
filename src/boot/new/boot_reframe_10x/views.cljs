@@ -96,7 +96,7 @@
                     (dispatch [:add-todo %]))}]])
 
 
-(defn init
+(defn todo-app
   []
   [:div
    [:section#todoapp

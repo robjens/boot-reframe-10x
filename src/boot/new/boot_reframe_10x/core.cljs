@@ -11,7 +11,6 @@
   (:import [goog History]
            [goog.history EventType]))
 
-
 ;; -- Debugging aids ----------------------------------------------------------
 (devtools/install!)       ;; we love https://github.com/binaryage/cljs-devtools
 (enable-console-print!)   ;; so that println writes to `console.log`
@@ -52,5 +51,5 @@
   ;; Render the UI into the HTML's <div id="app" /> element
   ;; The view function `{{ns-name}}.views/todo-app` is the
   ;; root view for the entire UI.
-  (reagent/render [{{ns-name}}.views/init]
+  (reagent/render [{{ns-name}}.views/todo-app]
                   (.getElementById js/document "app")))

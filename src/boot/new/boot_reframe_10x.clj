@@ -17,7 +17,7 @@
               :year (year)
               :date (date)
               :sanitized (name-to-path name)}]
-    (println (format "Generating fresh 'boot new' %s project." ns-name))
+    (println (format "Generating new project named '%s'" ns-name))
     (->files data
              ["build.boot" (render "build.boot" data)]
              ["README.adoc" (render "README.adoc" data)]
@@ -30,6 +30,7 @@
              ["src/cljs/{{sanitized}}/views.cljs" (render "views.cljs" data)]
              ["src/cljs/{{sanitized}}/subs.cljs" (render "subs.cljs" data)]
              ["test/cljs/{{sanitized}}/core_test.cljs" (render "core_test.cljs" data)]
-             ["resources/index.html" (render "index.html" data)]
-             ["resources/js/app.cljs.edn" (render "app.cljs.edn" data)]
+             ["resources/public/js/client.cljs.edn" (render "client.cljs.edn" data)]
+             ["resources/public/index.html" (render "index.html" data)]
+             ["resources/public/todos.css" (render "todos.css" data)]
              )))
