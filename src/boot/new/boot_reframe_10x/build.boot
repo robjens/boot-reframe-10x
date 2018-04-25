@@ -72,7 +72,7 @@
 
 (deftask development []
   (task-options! cljs {:optimizations :none}
-                 reload {:on-jsload '{{namespace}}.core/init})
+                 reload {:on-jsload '{{namespace}}/init})
   identity)
 
 (deftask dev
