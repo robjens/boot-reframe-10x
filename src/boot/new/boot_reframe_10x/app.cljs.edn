@@ -1,0 +1,9 @@
+{:require  [{{ns-name}}.core]
+ :init-fns [{{ns-name}}.core/main]
+
+ :compiler-options
+ {:asset-path "js/app.out"
+  :preloads [day8.re-frame-10x.preload]
+  :closure-defines {"re_frame.trace.trace_enabled_QMARK_" true
+                    "day8.re_frame.tracing.trace_enabled_QMARK_" true}
+  }}
