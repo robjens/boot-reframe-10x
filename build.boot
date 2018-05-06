@@ -33,7 +33,7 @@
 
 (bootlaces! +version+)
 
-(ns-unmap 'adzerk.bootlaces 'push-release)
+(ns-unmap 'boot.user 'push-release)
 
 ;; Ugly hack to get around bootlaces static gpg-sign true param
 ;; Using Git Bash, even after creating GPG secret key, it will fail due to "no tty" (mingw)
