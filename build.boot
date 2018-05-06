@@ -13,6 +13,7 @@
 
 (require '[adzerk.bootlaces :refer :all]
          '[adzerk.boot-test :refer [test]]
+         '[boot.git :refer [last-commit]]
          '[boot.new :refer [new]])
 
 (task-options!
@@ -30,5 +31,42 @@
   []
   (comp (pom) (jar) (install)))
 
-
 (bootlaces! +version+)
+
+(ns-unmap 'adzerk.bootlaces 'push-release)
+
+;; Ugly hack to get around bootlaces static gpg-sign true param
+;; Using Git Bash, even after creating GPG secret key, it will fail due to "no tty" (mingw)
+(def ^:private +last-commit+
+  (try (last-commit) (catch Throwable _)))
+
+(deftask ^:private collect-clojars-credentials
+  "Collect CLOJARS_USER and CLOJARS_PASS from the user if they're not set."
+  []
+  (fn [next-handler]
+    (fn [fileset]
+      (let [[user pass] (get-creds), clojars-creds (atom {})]
+        (if (and user pass)
+          (swap! clojars-creds assoc :username user :password pass)
+          (do (println "CLOJARS_USER and CLOJARS_PASS were not set; please enter your Clojars credentials.")
+              (print "Username: ")
+              (#(swap! clojars-creds assoc :username %) (read-line))
+              (print "Password: ")
+              (#(swap! clojars-creds assoc :password %)
+               (apply str (.readPassword (System/console))))))
+        (merge-env! :repositories [["deploy-clojars" (merge @clojars-creds {:url "https://clojars.org/repo"})]])
+        (next-handler fileset)))))
+
+
+(deftask push-release
+  "Deploy release version to Clojars."
+  [f file PATH str "The jar file to deploy."
+   s sign bool "Enable GPG signing of the JAR."]
+  (comp
+   (collect-clojars-credentials)
+   (push
+    :file           file
+    :tag            (boolean +last-commit+)
+    :gpg-sign       sign
+    :ensure-release true
+    :repo           "deploy-clojars")))
