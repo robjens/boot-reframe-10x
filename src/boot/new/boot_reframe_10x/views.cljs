@@ -88,7 +88,7 @@
 (defn task-entry
   []
   [:header#header
-    [:h1 {{ns-name}}]
+    [:h1 "{{ns-name}}"]
     [todo-input
       {:id "new-todo"
        :placeholder "What needs to be done?"
