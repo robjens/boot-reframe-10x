@@ -5,25 +5,35 @@ which uses the https://github.com/Day8/re-frame[Day8 re-frame] Reagent
 Framework.  Boilerplate code is the (not so) canonical TODO MVC example for
 re-frame, only having re-frame 10x event tracing setup.
 
-## Usage
+== Usage
 
-```sh
+[source,sh]
+----
 boot -d boot/new new -t boot-reframe-10x -n my.example.spa
-```
+----
 
-Then enter the directory created and issue
+Then change the current working directory to the one created and issue the command:
 
-```sh
+[source,sh]
+----
 boot dev
-```
+----
 
-Finally navigate to http://127.0.0.1:3000/public/index.html page on bleep!
+This part will likely take a minute or two. On the beep! (compilation of
+ClojureScript finished) navigate to: http://127.0.0.1:3000/public/index.html to
+see the SPA working.
 
-## License
+IMPORTANT: This template uses a few explicit dependency versions and will
+likely break when changed without regarding their compatibility. Using
+"RELEASE" in these cases will almost guarantee breaking one or more parts of
+this solution.
+
+== License
 
 © 2018 Rob Jentzema
 
-Credits go to: Day8, Facebook, Micha Niskin, Rich Hickey and so many others
+All credits go to: Day8, Micha Niskin, Rich Hickey, Facebook and so many others.
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
+
