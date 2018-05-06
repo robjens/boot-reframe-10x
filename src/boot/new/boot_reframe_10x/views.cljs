@@ -96,10 +96,10 @@
                     (dispatch [:add-todo %]))}]])
 
 
-(defn todo-app
+(defn app
   []
   [:div
-   [:section#todoapp
+   [:section#app
     [task-entry]
     (when (seq @(subscribe [:todos]))
       [task-list])

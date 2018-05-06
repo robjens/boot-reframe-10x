@@ -49,7 +49,7 @@
 (defn ^:export main
   []
   ;; Render the UI into the HTML's <div id="app" /> element
-  ;; The view function `{{ns-name}}.views/todo-app` is the
+  ;; The view function `{{ns-name}}.views/app` is the
   ;; root view for the entire UI.
-  (reagent/render [{{ns-name}}.views/todo-app]
+  (reagent/render [{{ns-name}}.views/app]
                   (.getElementById js/document "app")))

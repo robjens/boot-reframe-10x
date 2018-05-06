@@ -32,5 +32,5 @@
              ["test/cljs/{{sanitized}}/core_test.cljs" (render "core_test.cljs" data)]
              ["resources/public/js/client.cljs.edn" (render "client.cljs.edn" data)]
              ["resources/public/index.html" (render "index.html" data)]
-             ["resources/public/todos.css" (render "todos.css" data)]
+             ["resources/public/styles.css" (render "styles.css" data)]
              )))
