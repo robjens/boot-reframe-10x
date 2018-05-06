@@ -1,4 +1,4 @@
-# boot-reframe-10x
+= boot-reframe-10x
 
 A Leiningen template for FIXME.
 
