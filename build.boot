@@ -8,7 +8,7 @@
                             [adzerk/bootlaces "RELEASE" :scope "test"]
                             ])
 
-(def +version+ "0.1.0-SNAPSHOT")
+(def +version+ "0.1.0")
 (def project 'boot-reframe-10x/boot-template)
 
 (require '[adzerk.bootlaces :refer :all]
