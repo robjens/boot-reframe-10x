@@ -22,7 +22,8 @@
        :url         "https://github.com/robjens/boot-reframe-10x"
        :scm         {:url "https://github.com/robjens/boot-reframe-10x"}
        :license     {"Eclipse Public License"
-                     "http://www.eclipse.org/legal/epl-v10.html"}})
+                     "http://www.eclipse.org/legal/epl-v10.html"}}
+  push {:repo "clojars" :gpg-sign false})
 
 (deftask build
   "Build and install the project locally."
