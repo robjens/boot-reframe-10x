@@ -1,14 +1,29 @@
 = boot-reframe-10x
 
-A Leiningen template for FIXME.
+A template for the Clojure build tool https://github.com/boot-clj/boot[boot]
+which uses the https://github.com/Day8/re-frame[Day8 re-frame] Reagent
+Framework.  Boilerplate code is the (not so) canonical TODO MVC example for
+re-frame, only having re-frame 10x event tracing setup.
 
 ## Usage
 
-FIXME
+```sh
+boot -d boot/new new -t boot-reframe-10x -n my.example.spa
+```
+
+Then enter the directory created and issue
+
+```sh
+boot dev
+```
+
+Finally navigate to http://127.0.0.1:3000/public/index.html page on bleep!
 
 ## License
 
-Copyright © 2018 FIXME
+© 2018 Rob Jentzema
+
+Credits go to: Day8, Facebook, Micha Niskin, Rich Hickey and so many others
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
