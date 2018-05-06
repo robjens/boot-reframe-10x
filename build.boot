@@ -40,6 +40,9 @@
 (def ^:private +last-commit+
   (try (last-commit) (catch Throwable _)))
 
+(defn- get-creds []
+  (mapv #(System/getenv %) ["CLOJARS_USER" "CLOJARS_PASS"]))
+
 (deftask ^:private collect-clojars-credentials
   "Collect CLOJARS_USER and CLOJARS_PASS from the user if they're not set."
   []
